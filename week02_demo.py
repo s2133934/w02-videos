@@ -12,7 +12,7 @@ statement = [[-119.02, -56.54, 1200, -80, -12.99, -550, -167.90, -5.58, -3.54, -
 # Your job: pay monthly 0.5% interest to this account.
 
 # Update the account balance each month: OK!
-# Calculate interest each month
+# Calculate interest each month: OK!
 # Pay the total interest (6 months) to the account:
 # - pay the total (update the balance for the last month)
 # - log that transaction into statement for 6th month.
@@ -20,4 +20,13 @@ statement = [[-119.02, -56.54, 1200, -80, -12.99, -550, -167.90, -5.58, -3.54, -
 def update_balance(month, starting_balance):
     balance = starting_balance + sum(month)
     return balance
+
+def calculate_interest(balance, interest_rate):
+    '''
+    Returns total interest paid for a given balance,
+    at rate interest_rate (given in %).
+    '''
+    interest = 0.01 * interest_rate * balance
+    return interest
+
 
