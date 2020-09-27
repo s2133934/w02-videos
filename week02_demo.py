@@ -29,4 +29,20 @@ def calculate_interest(balance, interest_rate):
     interest = 0.01 * interest_rate * balance
     return interest
 
+def update_statement(statement, initial_balance, interest_rate):
+    '''
+    Update the client's bank statement with interest payment.
+    '''
+    balance = initial_balance
+    total_interest = 0
+    
+    for month in statement:
+        balance = update_balance(month, balance)
+        total_interest = total_interest + calculate_interest(balance, interest_rate)
+    
+    statement[-1].append(total_interest)
+    balance = balance + total_interest
 
+    return statement, balance
+
+print(update_statement(statement, initial_balance, 0.5))
